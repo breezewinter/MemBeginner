@@ -18,7 +18,7 @@ class mem
 
 	DWORD GetModuleBaseAddress(wchar_t* modName);
 
-	template<typename T> void RPM(DWORD moduleBaseAddress, DWORD offsets[]);
+	template<typename T> void RPM(wchar_t* modName, DWORD moduleBaseAddress, DWORD offsets[]);
 	template<typename T> void WPM(DWORD addr, T buffer);
 };
 
