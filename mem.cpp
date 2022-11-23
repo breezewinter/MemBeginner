@@ -1,6 +1,6 @@
 #include "mem.h"
 
-void mem::setup(const char* windowName, wchar_t* modName, DWORD firstOffsetA)
+void mem::setup(const char* windowName, DWORD firstOffsetA)
 {
 	window = FindWindowA(windowName, nullptr);
 	GetWindowThreadProcessId(window, &procId);
@@ -50,8 +50,9 @@ DWORD mem::GetModuleBaseAddress(wchar_t* modName)
     return modBaseAddr;
 }
 
-template<typename T> void mem::RPM(DWORD moduleBaseAddress, DWORD offsets[])
+template<typename T> void mem::RPM(wchar_t* modName, DWORD moduleBaseAddress, DWORD offsets[])
 {
+    baseAddress = GetModuleBaseAddress(modName);
     DWORD addr = baseAddress + firstOffset;
     ReadProcessMemory(procHandle, (void*)addr, &addr, sizeof(addr), nullptr);
 
