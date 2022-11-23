@@ -14,11 +14,10 @@ class mem
 	DWORD baseAddress;
 	DWORD firstOffset;
 
-	void setup(const char* windowName, wchar_t* modName, DWORD firstOffsetA);
+public: void setup(const char* windowName, DWORD firstOffsetA);
 
 	DWORD GetModuleBaseAddress(wchar_t* modName);
 
-	template<typename T> void RPM(wchar_t* modName, DWORD moduleBaseAddress, DWORD offsets[]);
-	template<typename T> void WPM(DWORD addr, T buffer);
+public: template<typename T> void RPM(wchar_t* modName, DWORD moduleBaseAddress, DWORD offsets[]);
+public: template<typename T> void WPM(DWORD addr, T buffer);
 };
-
