@@ -55,7 +55,7 @@ template<typename T> void mem::RPM(DWORD moduleBaseAddress, DWORD offsets[])
     DWORD addr = baseAddress + firstOffset;
     ReadProcessMemory(procHandle, (void*)addr, &addr, sizeof(addr), nullptr);
 
-    for (int i = 0; i < sizeof(offsets) - 1; i++)
+    for (int i = 0; i < sizeof(*(offsets)) - 1; i++)
     {
         addr += offsets[i];
         ReadProcessMemory(procHandle, (void*)addr, &addr, sizeof(addr), nullptr);
