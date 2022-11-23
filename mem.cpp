@@ -2,10 +2,9 @@
 
 void mem::setup(const char* windowName, DWORD firstOffsetA)
 {
-	window = FindWindowA(windowName, nullptr);
-	GetWindowThreadProcessId(window, &procId);
-	procHandle = OpenProcess(PROCESS_ALL_ACCESS, false, procId);
-    baseAddress = GetModuleBaseAddress(modName);
+    window = FindWindowA(windowName, nullptr);
+    GetWindowThreadProcessId(window, &procId);
+    procHandle = OpenProcess(PROCESS_ALL_ACCESS, false, procId);
     firstOffset = firstOffsetA;
 }
 
